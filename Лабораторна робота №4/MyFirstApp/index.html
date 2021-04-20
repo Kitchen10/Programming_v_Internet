@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>First App</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-on:input="setText"><br>
+    <span>{{description}}</span><br>
+    <span>User Input: {{userText}}</span>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return{
+          description: 'My basic App.',
+          userText: ''
+        }
+      },
+      methods: {
+        setText(event){
+          this.userText = event.target.value;
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

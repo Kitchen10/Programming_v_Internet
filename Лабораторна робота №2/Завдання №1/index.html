@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання №1</title>
+
+</head>
+<body>
+  <h1>Title</h1>
+  <a href="">Link1</a>
+  <a href="">Link2</a>
+  <div>Block</div>
+  <script>
+    window.onload = function() {
+
+      function myFunction(type, color) {
+        let elements = document.getElementsByTagName(type);
+
+        for (let i = 0; i < elements.length; i++) {
+          const element = elements[i];
+          element.style.background = color;
+        }
+      }
+
+      myFunction("h1", "red");
+      myFunction("a", "#30ac57");
+      myFunction("div", "aquamarine");
+    }
+  </script>
+</body>
+</html>

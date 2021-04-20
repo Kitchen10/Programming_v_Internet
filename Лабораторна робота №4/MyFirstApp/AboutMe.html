@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Me</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{printMessage()}}</p>
+      <span v-text="greetings()"></span><br />
+      <a v-bind:href="getDayInfo()">About this date</a>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            firstname: "Каріна",
+            lastname: "Денисюк",
+            birthday: "3.05.2000",
+          };
+        },
+        methods: {
+          printMessage() {
+            let str = this.birthday;
+            let res = str.split(".");
+            let dayOfBirth = res[0];
+            let monthOfBirth = res[1] - 1;
+            let today = new Date();
+            let bday = new Date(today.getFullYear(), monthOfBirth, dayOfBirth);
+            if (today.getTime() > bday.getTime()) {
+              bday.setFullYear(bday.getFullYear() + 1);
+            }
+            let diff = bday.getTime() - today.getTime();
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+            if (today.getDate() == dayOfBirth && today.getMonth() == monthOfBirth) {
+              return "Happy Birthday " + this.firstname + " " + this.lastname;
+            } else {
+              return "Sorry, " + this.firstname + " " + this.lastname + " you need to wait " + days + " days";
+            }
+          },
+
+          greetings() {
+            let day = new Date();
+            let hours = day.getHours();
+            if (hours >= 17 && hours <= 23) {
+              return "Good Evening";
+            } else if (hours >= 0 && hours < 6) {
+              return "Good Night";
+            } else if (hours >= 6 && hours <= 10) {
+              return "Good Morning";
+            } else {
+              return "Good Day";
+            }
+          },
+
+          getDayInfo() {
+            var str = this.birthday;
+            var res = str.split(".");
+            var months = [
+              "Jan",
+              "Feb",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ];
+            return (
+              "https://en.wikipedia.org/wiki/" +
+              months[res[1] - 1] +
+              "_" +
+              res[0]
+            );
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

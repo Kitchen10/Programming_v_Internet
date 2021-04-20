@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Улюблені книги</title>
+</head>
+<body>
+  <h1>Улюблені книги</h1>
+
+  <script>
+    window.onload = function () {
+
+      function createList() {
+        let ol = document.createElement("ol");
+
+        let books = [
+        {name: "Країна розваг", author: "Стівен Кінг", year: 2013},
+        {name: "Меняйся или сдохни", author: "Джон Брендон", year: 2019},
+        {name: "Исскуство любить", author: "Еріх Фромма", year: 1956},
+        {name: "10 секретов счастья", author: "Адам Джексон", year: 2008},
+        {name: "В оточенні психопатів", author: "Томас Еріксон", year: 2019},
+        ]
+
+
+        for (let i = 0; i < books.length; i++) {
+          const element = books[i];
+          let li = document.createElement("li");
+          let p = document.createElement("p");
+          li.innerHTML = '<p>' + element.name + '</p> <p>' + element.author + '</p><p>' + element.year + ' рік </p>';
+          ol.appendChild(li);
+        }
+
+        document.body.append(ol);
+      }
+
+      function createLinks() {
+        let links = ["https://www.yakaboo.ua/kraina-rozvag.html", "https://www.litres.ru/dzhon-brendon/menyaysya-ili-sdohni/chitat-onlayn/", "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%BE_%D0%BB%D1%8E%D0%B1%D0%B8%D1%82%D1%8C", "https://ru.bookmate.com/books/JEYz8s2j", "https://nashformat.ua/products/v-otochenni-psyhopativ-abo-yak-unyknuty-manipulyatsij-z-boku-inshyh-916741"];
+        let list = document.getElementsByTagName("li");
+        for (let i = 0; i < list.length; i++) {
+          const element = list[i];
+          let a = document.createElement("a");
+          
+          a.href = links[i];
+          a.innerHTML = "Посилання на книгу";
+
+          element.append(a);
+        }
+      }
+
+      createList();
+      createLinks();
+    }
+
+  </script>
+</body>
+</html>

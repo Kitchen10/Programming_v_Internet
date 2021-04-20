@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Завдання №3</title>
+  </head>
+  <body>
+    <ul>
+      <li>Шанхай</li>
+      <li>Пекін</li>
+      <li>Карачі</li>
+      <li>Стамбул</li>
+      <li>Дакка</li>
+      <li>Токіо</li>
+      <li>Москва</li>
+      <li>Маніла</li>
+      <li>Тянцзинь</li>
+      <li>Мумбаї</li>
+    </ul>
+    <button onclick="removeElement()">Видалити елемент</button>
+    <button onclick="addElement()">Додати елемент</button>
+
+    <script>
+      
+      function myFunction() {
+        let li = document.getElementsByTagName("li");
+        for (let i = 0; i < li.length; i++) {
+          const element = li[i];
+          element.style.fontSize = "10px";
+          element.style.color = "red";
+        }
+      }
+
+      function removeElement() {
+        let list = document.getElementsByTagName("ul");
+        let li = document.getElementsByTagName("li");
+        let lastElement = li[li.length - 1];
+        list[0].removeChild(lastElement);
+      }
+
+      function addElement() {
+        let list = document.getElementsByTagName("ul");
+        let li = document.createElement("li");
+        li.innerHTML = "Новий елемент";
+        list[0].appendChild(li);
+      }
+
+      myFunction();
+    </script>
+  </body>
+</html>

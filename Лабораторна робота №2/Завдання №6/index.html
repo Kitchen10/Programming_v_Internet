@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Найвищі вершини</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      th {
+        background-color: rgb(153, 228, 150);
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Найвищі вершини</h1>
+    <table id="table">
+      <tr>
+        <th>Назва</th>
+        <th>Країна</th>
+        <th>Висота(м)</th>
+      </tr>
+    </table>
+
+    <script>
+      window.onload = function () {
+
+        function addElements(name, country, height) {
+          let table = document.getElementById("table");
+          let tr = document.createElement("tr");
+
+          tr.innerHTML ="<td>" + name + "</td> <td>" + country + "</td> <td>" + height + "</td>";
+
+          table.appendChild(tr);
+        }
+
+        addElements("Говерла", "Україна", 2061);
+        addElements("Китай", "Еверест", 8849);
+      };
+    </script>
+  </body>
+</html>

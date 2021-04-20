@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання №2</title>
+</head>
+<body>
+  <a href="">Text1</a>
+  <a href="">Text2</a>
+  <a href="">Text3</a>
+  <a href="">Text4</a>
+  <script>
+    window.onload = function() {
+
+      function myFunction() {
+        let a = document.getElementsByTagName("a");
+        let count = a.length;
+        let firstLink = a[0].innerText;
+        let lastLink = a[a.length - 1].innerText;
+
+        return {count, firstLink, lastLink};
+      }
+
+      console.log(myFunction());
+    }
+  </script>
+</body>
+</html>
